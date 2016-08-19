@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="domains.Task" table="task">
+    <id column="id" name="id" type="int">
+      <generator class="native"/>
+    </id>
+    <property column="name" name="name" type="string"/>
+    <property column="creator_id" name="creator_id" type="int"/>
+    <property column="project_id" insert="false" name="project_id" type="int" update="false"/>
+    <property column="type" name="type" type="string"/>
+    <property column="point" name="point" type="int"/>
+    <property column="priority" name="priority" type="string"/>
+    <property column="description" name="description" type="string"/>
+    <property column="create_date" name="create_date" type="date"/>
+    <property column="user_id" name="user_id" type="int" insert="false" update="false"/>
+    <many-to-one class="domains.Project" name="project">
+      <column name="project_id"/>
+    </many-to-one>
+    <many-to-one class="domains.User" name="user">
+      <column name="user_id"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>
