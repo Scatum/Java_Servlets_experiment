@@ -5,13 +5,14 @@
  */
 package controllers;
 
+import domains.Task;
+import domains.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.domains.Task;
-import java.domains.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,14 +20,14 @@ import java.util.logging.Logger;
 
 
 /**
- *
  * @author ScatUm
  */
 @WebServlet("/editTask")
-public class EditTask extends HttpServlet{
+public class EditTask extends HttpServlet {
     Task task;
-     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-  
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
 
             int id = Integer.valueOf(request.getParameter("task-id"));
@@ -38,29 +39,29 @@ public class EditTask extends HttpServlet{
             task.setPoint(Integer.valueOf(request.getParameter("task-point")));
             task.setDescription(request.getParameter("task-description"));
             Factory.getInstance().getTaskDao().updateTask(task);
-            User user = (User)request.getSession().getAttribute("user");
-            if(user.isU_is_admin()){
+            User user = (User) request.getSession().getAttribute("user");
+            if (user.isU_is_admin()) {
                 //response.sendRedirect("WEB-INF/adminView.jsp");
                 request.getRequestDispatcher("WEB-INF/adminView.jsp").forward(request, response);
 
-            }else {
+            } else {
                 //response.sendRedirect("WEB-INF/userHomeView.jsp");
                 request.getRequestDispatcher("WEB-INF/userHomeView.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
             Logger.getLogger(EditTask.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-    
-    @Override
-         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    }
 
-         int id = Integer.valueOf(request.getParameter("id"));
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int id = Integer.valueOf(request.getParameter("id"));
         try {
             Factory.getInstance().getTaskDao().deleteTaskById(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
 }

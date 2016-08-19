@@ -5,26 +5,26 @@
  */
 package dao;
 
-import java.domains.Task;
+import domains.Task;
+
 import java.sql.SQLException;
 import java.util.List;
 
 
 /**
- *
  * @author ScatUm
  */
 public interface TaskDao {
-    
+
     public void addTask(Task task) throws SQLException;
-    
+
     public void updateTask(Task task) throws SQLException;
-    
+
     public void deleteTask(Task task) throws SQLException;
 
     public void deleteTaskById(int id) throws SQLException;
 
     public Task getTask(int id) throws SQLException;
-       
+
     public List<Task> getTasks() throws SQLException;
 }

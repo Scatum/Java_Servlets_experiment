@@ -6,17 +6,16 @@
 package utils;
 
 /**
- *
  * @author ScatUm
  */
 public class UtilPM {
-    
-    public static String getTaskProgressByValue(String value){
-       
-        String []valueTask = { "on_hold", "to_do", "in_progres", "in_review", "done"};
-        String []nameTAsk = { "On Hold", "To Do", "In Progres", "In Review", "Done"};
-        for(int x = 0; x<nameTAsk.length; x++) {
-            if(value.equals(valueTask[x])){
+
+    public static String getTaskProgressByValue(String value) {
+
+        String[] valueTask = {"on_hold", "to_do", "in_progres", "in_review", "done"};
+        String[] nameTAsk = {"On Hold", "To Do", "In Progres", "In Review", "Done"};
+        for (int x = 0; x < nameTAsk.length; x++) {
+            if (value.equals(valueTask[x])) {
                 return nameTAsk[x];
             }
         }

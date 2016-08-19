@@ -9,39 +9,44 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- *
  * @author ScatUm
  */
 @Entity
-@Table(name="task")
+@Table(name = "task")
 public class Task {
-    
+
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-    @Column(name="name")
+
+    @Column(name = "name")
     private String name;
-    
-    @Column(name="creator_id")
+
+    @Column(name = "creator_id")
     private int creator_id;
-    
-    @Column(name="project_id")
+
+    @Column(name = "project_id")
     private int project_id;
-    
-    @Column(name="type")
+
+    @Column(name = "type")
     private String type;
-    
-    @Column(name="point")
+
+    @Column(name = "point")
     private int point;
-    
-    @Column(name="priority")
+
+    @Column(name = "priority")
     private String priority;
-    
+
     private Project project;
 
     private User user;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "create_date")
+    private Date create_date;
+    @Column(name = "user_id")
+    private int user_id;
 
     public User getUser() {
         return user;
@@ -58,15 +63,6 @@ public class Task {
     public void setProject(Project project) {
         this.project = project;
     }
-    
-    @Column(name="description")
-    private String description;
-    
-    @Column(name="create_date")
-    private Date create_date;
-    
-    @Column(name="user_id")
-    private int user_id;
 
     public int getUser_id() {
         return user_id;
@@ -147,6 +143,6 @@ public class Task {
     public void setCreate_date(Date create_date) {
         this.create_date = create_date;
     }
-    
-    
+
+
 }

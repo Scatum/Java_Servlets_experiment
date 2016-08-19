@@ -5,77 +5,74 @@
  */
 package dao.imlp;
 
+import dao.ProjectDao;
+import domains.Project;
 import org.hibernate.Session;
+import utils.HibernateUtil;
 
-import java.dao.ProjectDao;
-import java.domains.Project;
 import java.sql.SQLException;
 import java.util.List;
-import java.utils.HibernateUtil;
 
 
 /**
- *
  * @author ScatUm
  */
 public class ProjectDaoImpl implements ProjectDao {
 
     Session session = null;
-       
-    public ProjectDaoImpl(){
-            session = HibernateUtil.getSessionFactory().openSession();
-      }
+
+    public ProjectDaoImpl() {
+        session = HibernateUtil.getSessionFactory().openSession();
+    }
+
     public void addProject(Project project) throws SQLException {
-       
-        try{
-           // session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            // session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(project);
             session.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
-            if((session!=null) && (session.isOpen())) {
-           // session.close();
-        }
+        } finally {
+            if ((session != null) && (session.isOpen())) {
+                // session.close();
+            }
         }
     }
 
     @Override
     public void updateProject(Project project) throws SQLException {
-       // Session session = null;
-        try{
-            
-         //   session = HibernateUtil.getSessionFactory().openSession();
+        // Session session = null;
+        try {
+
+            //   session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.update(project);
             session.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
-            if((session!=null) && (session.isOpen())) {
-           // session.close();
-        }
+        } finally {
+            if ((session != null) && (session.isOpen())) {
+                // session.close();
+            }
         }
     }
-    
+
     @Override
     public void deleteProject(Project project) throws SQLException {
-       // Session session = null;
-        try{
-         //   session = HibernateUtil.getSessionFactory().openSession();
+        // Session session = null;
+        try {
+            //   session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.delete(project);
             session.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
-            if((session!=null) && (session.isOpen())) {
-           // session.close();
-        }
+        } finally {
+            if ((session != null) && (session.isOpen())) {
+                // session.close();
+            }
         } //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -83,42 +80,40 @@ public class ProjectDaoImpl implements ProjectDao {
     @Override
     public List<Project> getProjects() throws SQLException {
         List<Project> projects = null;
-        
+
         //   Session session = null;
-        try{
-        //    session = HibernateUtil.getSessionFactory().openSession();
-           projects =  session.createCriteria(Project.class).list();
-        }catch(Exception e){
+        try {
+            //    session = HibernateUtil.getSessionFactory().openSession();
+            projects = session.createCriteria(Project.class).list();
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if ((session != null) && (session.isOpen())) {
+                //  session.close();
+            }
         }
-        finally{
-            if((session!=null) && (session.isOpen())) {
-          //  session.close();
-        }
-        }
-        
+
         return projects;
     }
 
     @Override
     public Project getProject(int id) throws SQLException {
- Project result = null;
-       //      Session session = null;
-        try{
-         //   session = HibernateUtil.getSessionFactory().openSession();
-            result = (Project)session.load(Project.class, id);
-        }catch(Exception e){
+        Project result = null;
+        //      Session session = null;
+        try {
+            //   session = HibernateUtil.getSessionFactory().openSession();
+            result = (Project) session.load(Project.class, id);
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if ((session != null) && (session.isOpen())) {
+                // session.close();
+
+            }
         }
-        finally{
-            if((session!=null) && (session.isOpen())) {
-           // session.close();
-          
-        }
-        }
-            
-        return result;  
-    
+
+        return result;
+
     }
-    
+
 }

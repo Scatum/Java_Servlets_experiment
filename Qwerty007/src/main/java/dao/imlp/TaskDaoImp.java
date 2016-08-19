@@ -6,13 +6,13 @@
 package dao.imlp;
 
 
+import dao.TaskDao;
+import domains.Task;
 import org.hibernate.Session;
+import utils.HibernateUtil;
 
-import java.dao.TaskDao;
-import java.domains.Task;
 import java.sql.SQLException;
 import java.util.List;
-import java.utils.HibernateUtil;
 
 
 /**
@@ -81,7 +81,7 @@ public class TaskDaoImp implements TaskDao {
 
         try {
             session.beginTransaction();
-            Task task = (Task)session.load(Task.class,id);
+            Task task = (Task) session.load(Task.class, id);
             session.delete(task);
             session.getTransaction().commit();
         } catch (Exception e) {

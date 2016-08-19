@@ -4,18 +4,18 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import domains.Task;
+import domains.User;
+import utils.TaskProgress;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.domains.Task;
-import java.domains.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import java.utils.TaskProgress;
 
 /**
  * Created by ScatUm on 18.08.2016.
@@ -31,7 +31,7 @@ public class DevelopersData extends HttpServlet {
             JsonObject obj = new JsonObject();
             JsonArray array = new JsonArray();
             for (User user : developers) {
-                 data = new JsonArray();
+                data = new JsonArray();
 
                 data.add(new JsonPrimitive(user.getU_name()));
                 data.add(new JsonPrimitive(user.getU_about()));

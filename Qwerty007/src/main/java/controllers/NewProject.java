@@ -1,12 +1,13 @@
 package controllers;
 
+import domains.Project;
+import domains.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.domains.Project;
-import java.domains.User;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class NewProject extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = (User)request.getSession(false).getAttribute("user");
+        User user = (User) request.getSession(false).getAttribute("user");
         String name = request.getParameter("proj_name");
         String description = request.getParameter("description");
         Calendar currenttime = Calendar.getInstance();

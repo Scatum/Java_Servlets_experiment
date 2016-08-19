@@ -9,30 +9,29 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- *
  * @author ScatUm
  */
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
     @Id
-    @Column(name="u_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Column(name = "u_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-    @Column(name="u_name")
+
+    @Column(name = "u_name")
     private String name;
-    
-    @Column(name="u_email")
+
+    @Column(name = "u_email")
     private String email;
-    
-     @Column(name="u_password")
+
+    @Column(name = "u_password")
     private String password;
-       
-     @Column(name="u_about")
+
+    @Column(name = "u_about")
     private String about;
-          
-    @Column(name="u_is_admin")
+
+    @Column(name = "u_is_admin")
     private boolean isAdmin;
 
     private Set<Task> tasks;
@@ -92,6 +91,6 @@ public class User {
     public void setU_is_admin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
-    
-    
+
+
 }

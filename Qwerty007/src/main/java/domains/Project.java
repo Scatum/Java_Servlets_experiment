@@ -10,31 +10,30 @@ import java.sql.Date;
 import java.util.Set;
 
 /**
- *
  * @author ScatUm
  */
 
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
-    
+
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-    @Column(name="name")
+
+    @Column(name = "name")
     private String name;
-    
-    @Column(name="creator_id")
+
+    @Column(name = "creator_id")
     private int creator_id;
-    
-    @Column(name="description")
+
+    @Column(name = "description")
     private String description;
-    
-    @Column(name="date")
+
+    @Column(name = "date")
     private Date date;
-    
+
     private Set<Task> tasks;
 
     public int getId() {
@@ -84,6 +83,6 @@ public class Project {
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
     }
-    
-    
+
+
 }

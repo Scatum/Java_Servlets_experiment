@@ -9,21 +9,20 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import domains.Task;
+import domains.User;
+import utils.UtilPM;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.domains.Task;
-import java.domains.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.utils.UtilPM;
-
 
 /**
  * @author ScatUm
@@ -75,7 +74,6 @@ public class UserDataTable extends HttpServlet {
             Logger.getLogger(UserDataTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 
 }

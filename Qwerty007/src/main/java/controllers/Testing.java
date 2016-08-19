@@ -13,14 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *
  * @author ScatUm
  */
 @WebServlet("/testing")
-public class Testing extends HttpServlet{
-     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-             throws ServletException, IOException {
-         Factory f = Factory.getInstance();
+public class Testing extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Factory f = Factory.getInstance();
            
          /*try {
           *//*   List <Task> l = new ArrayList<Task>();
@@ -30,5 +29,5 @@ public class Testing extends HttpServlet{
              Logger.getLogger(Testing.class.getName()).log(Level.SEVERE, null, ex);
          }
      }*/
-     }
+    }
 }
