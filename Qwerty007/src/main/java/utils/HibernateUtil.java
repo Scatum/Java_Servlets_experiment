@@ -7,10 +7,10 @@ import org.hibernate.cfg.Configuration;
 
 
 public class HibernateUtil {
+
     public static SessionFactory sessionFactory = null;
 
-
-    public static SessionFactory getSessionFactory() {
+    public static synchronized  SessionFactory getSessionFactory() {
         Configuration cfg = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
         sessionFactory = cfg.buildSessionFactory(builder.build());

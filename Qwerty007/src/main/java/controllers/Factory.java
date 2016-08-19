@@ -29,7 +29,7 @@ public class Factory {
     private Factory() {
     }
 
-    public static Factory getInstance() {
+    public static synchronized  Factory getInstance() {
         if (instance == null)
             instance = new Factory();
         return Factory.instance;
